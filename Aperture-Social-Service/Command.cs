@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aperture_Social_Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,17 @@ namespace Aperture_Social_Communications
     class Command
     {
         private string command;
-        
+        private void Auth()
+        {
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Authentication auth = new Authentication();
+            Console.ResetColor();
+            Console.Write("\nPlease begin the authentication process (asc auth) : ");
+            //auth.Authentify();
+            auth.AdminAuthentify();
+            command = Console.ReadLine();
+            Console.ResetColor();
+        }
         private void Instructions()
         {
             Console.ResetColor();
@@ -21,6 +32,7 @@ namespace Aperture_Social_Communications
         {
             PostTweet tweet = new PostTweet("");
             Start title = new Start();
+            Auth();
             Instructions();
             while (command != "asc quit")
             {

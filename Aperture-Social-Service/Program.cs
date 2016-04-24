@@ -18,11 +18,8 @@ namespace Aperture_Social_Communications
             Console.Title = "Aperture Social Communications";
             Start title = new Start();
             Command command = new Command();
-            Authentication auth = new Authentication();
 
             title.WriteApp();
-            //auth.Authentify();
-            auth.AdminAuthentify();
             command.AppCommand();
         }
     }

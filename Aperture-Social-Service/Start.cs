@@ -33,7 +33,7 @@ namespace Aperture_Social_Communications
         public void WriteApp()
         {
 
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Cyan;
             try {
                 Console.SetWindowSize(210, 40);
                 Console.WriteLine(aperture);

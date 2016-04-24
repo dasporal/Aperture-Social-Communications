@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Aperture_Social_Service;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -19,9 +20,11 @@ namespace Aperture_Social_Communications
             Console.Title = "Aperture Social Communications";
             Start title = new Start();
             Command command = new Command();
+            ConsumerToken token = new ConsumerToken();
+            
             title.WriteApp();
-            var appCredentials = new TwitterCredentials("CONSUMER_KEY", "CONSUMER_SECRET");
-            Console.Write("Please enter the PIN gaved by Twitter : ");
+            var appCredentials = new TwitterCredentials(token.consumerKey,token.consumerSecret);
+            Console.Write("Please enter the PIN given by Twitter : ");
             var authenticationContext = AuthFlow.InitAuthentication(appCredentials);
             Process.Start(authenticationContext.AuthorizationURL);
             var pinCode = Console.ReadLine();

@@ -4,6 +4,9 @@ ehthumbs.db
 
 # Folder config file
 Desktop.ini
+Aperture-Social-Service/bin/
+Aperture-Social-Service/obj/
+Aperture-Social-Service/Aperture-Social-Service/ConsumerToken.cs
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
@@ -38,8 +41,7 @@ $RECYCLE.BIN/
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
-Aperture-Social-Service/bin/
-Aperture-Social-Service/obj/
+
 # Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop

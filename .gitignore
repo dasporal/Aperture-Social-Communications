@@ -253,3 +253,7 @@ paket-files/
 *.sln.iml
 Aperture-Social-Service/ConsumerToken.cs
 Aperture-Social-Service/obj/Debug/Aperture-Social-Service.pdb
+Aperture-Social-Service/bin/Debug/Aperture-Social-Service.exe
+Aperture-Social-Service/obj/Debug/Aperture-Social-Service.exe
+Aperture-Social-Service/obj/Debug/Aperture-Social-Service.pdb
+*.exe

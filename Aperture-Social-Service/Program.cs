@@ -21,7 +21,8 @@ namespace Aperture_Social_Communications
             Authentication auth = new Authentication();
 
             title.WriteApp();
-            auth.Authentify();
+            //auth.Authentify();
+            auth.AdminAuthentify();
             command.AppCommand();
         }
     }

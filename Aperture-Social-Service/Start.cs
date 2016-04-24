@@ -8,13 +8,8 @@ namespace Aperture_Social_Communications
 {
     class Start
     {
-        public void WriteApp()
-        {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            try {
-                Console.SetWindowSize(210, 40);
-                Console.WriteLine(@"
-                  .,-:;//;:=,
+        private string aperture = @"
+                   .,-:;//;:=,
               . :H@@@MM@M#H/.,+%;,
            ,/X+ +M@@M@MM%=,-%HMMM@X/,
          -+@MM; $M@@MH+-,;XMMMM@MMMM@+-
@@ -34,7 +29,14 @@ namespace Aperture_Social_Communications
            =%@M@M#@$-.=$@MM@@@M; %M%=
              ,:+$+-,/H#MMMMMMM@= =,
                    =++%%%%+/:-.
-            ");
+";
+        public void WriteApp()
+        {
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            try {
+                Console.SetWindowSize(210, 40);
+                Console.WriteLine(aperture);
             }
             catch(ArgumentOutOfRangeException e)
             {

@@ -38,7 +38,8 @@ $RECYCLE.BIN/
 .TemporaryItems
 .Trashes
 .VolumeIcon.icns
-
+Aperture-Social-Service/bin/
+Aperture-Social-Service/obj/
 # Directories potentially created on remote AFP share
 .AppleDB
 .AppleDesktop

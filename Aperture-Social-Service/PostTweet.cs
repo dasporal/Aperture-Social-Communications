@@ -19,7 +19,7 @@ namespace Aperture_Social_Communications
             Console.ForegroundColor= ConsoleColor.Red;
             Console.Write("Tweet : ");
             tweet = Console.ReadLine();
-            if(tweet.Length<=140 && tweet!="aperture cancel")
+            if(tweet.Length<=140 && tweet!="asc cancel")
                 Tweet.PublishTweet(tweet);
             else
             {

@@ -14,12 +14,14 @@ namespace Aperture_Social_Communications
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Authentication auth = new Authentication();
-            Console.ResetColor();
             Console.Write("\nPlease begin the authentication process (asc auth) : ");
-            //auth.Authentify();
-            auth.AdminAuthentify();
-            command = Console.ReadLine();
             Console.ResetColor();
+            //auth.Authentify();
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            auth.AdminAuthentify();
+            Console.ResetColor();
+            command = Console.ReadLine();
+
         }
         private void Instructions()
         {

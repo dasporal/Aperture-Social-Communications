@@ -252,3 +252,4 @@ paket-files/
 .idea/
 *.sln.iml
 Aperture-Social-Service/ConsumerToken.cs
+Aperture-Social-Service/obj/Debug/Aperture-Social-Service.pdb

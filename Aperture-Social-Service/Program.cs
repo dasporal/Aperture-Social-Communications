@@ -23,7 +23,6 @@ namespace Aperture_Social_Communications
             title.WriteApp();
             auth.Authentify();
             command.AppCommand();
-
         }
     }
 }

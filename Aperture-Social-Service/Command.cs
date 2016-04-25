@@ -14,13 +14,17 @@ namespace Aperture_Social_Communications
         {
             Console.ForegroundColor = ConsoleColor.Magenta;
             Authentication auth = new Authentication();
-            Console.Write("\nPlease begin the authentication process (asc auth) : ");
-            Console.ResetColor();
-            //auth.Authentify();
-            Console.ForegroundColor = ConsoleColor.Magenta;
-            auth.AdminAuthentify();
+            Console.Write("\nPlease begin the authentication process (asc auth) : ");   
             Console.ResetColor();
             command = Console.ReadLine();
+            if (command == "asc auth")
+            {
+                auth.Authentify();
+                //auth.AdminAuthentify();
+            }
+            else
+                Auth();
+            Console.ResetColor();
 
         }
         private void Instructions()
@@ -32,8 +36,9 @@ namespace Aperture_Social_Communications
         
         public void AppCommand()
         {
-            PostTweet tweet = new PostTweet("");
+            TwitterActions tweet = new TwitterActions("");
             Start title = new Start();
+
             Auth();
             Instructions();
             while (command != "asc quit")
@@ -41,17 +46,23 @@ namespace Aperture_Social_Communications
                 if (command == "asc tweet")
                 {
                     tweet.WriteTweet();
-                    Instructions();
+                }
+                if (command == "asc block")
+                {
+                    tweet.BlockUser();
+                }
+                if (command == "asc unblock")
+                {
+                    tweet.UnblockUser();
                 }
                 else if (command == "asc delete")
                 {
-                    Instructions();
+                    Console.WriteLine("One day");
                 }
                 else if (command == "asc clear")
                 {
                     Console.Clear();
                     title.WriteApp();
-                    Instructions();
                 }
                 else if (command == "help" || command == "asc help")
                 {
@@ -59,18 +70,18 @@ namespace Aperture_Social_Communications
                     Console.WriteLine(@"
 asc tweet: post a tweet
 asc delete: delete previous tweet /!\ Not functional yet /!\
+asc [un]block: [un]block user
 asc clear: clear console
 asc quit: close application
 More to come.");
-                    Instructions();
                 }
                 else if (command == "asc quit")
                     Environment.Exit(0);
                 else
                 {
                     Console.WriteLine("Use an appropriate command.");
-                    Instructions();
                 }
+                Instructions();
             }
         }
     }

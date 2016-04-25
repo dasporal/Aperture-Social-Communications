@@ -98,7 +98,7 @@
     <Compile Include="Authentication.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ConsumerToken.cs" />
-    <Compile Include="PostTweet.cs" />
+    <Compile Include="TwitterActions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Start.cs" />

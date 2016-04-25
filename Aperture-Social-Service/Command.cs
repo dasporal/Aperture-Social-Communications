@@ -15,8 +15,8 @@ namespace Aperture_Social_Communications {
             Console.ResetColor();
             command = Console.ReadLine();
             if (command == "asc auth") {
-                //auth.Authentify();
-                auth.AdminAuthentify();
+                auth.Authentify();
+                //auth.AdminAuthentify();
             } else
                 Auth();
             Console.ResetColor();
@@ -46,7 +46,9 @@ namespace Aperture_Social_Communications {
                 } else if (command == "asc clear") {
                     Console.Clear();
                     title.WriteApp();
-                } else if (command == "help" || command == "asc help") {
+                } else if (command == "asc dm")
+                    tweet.WriteDM();
+                else if (command == "help" || command == "asc help") {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(@"
     asc tweet: post a tweet

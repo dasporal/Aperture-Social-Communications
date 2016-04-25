@@ -38,7 +38,7 @@ namespace Aperture_Social_Communications
                 Console.SetWindowSize(210, 40);
                 Console.WriteLine(aperture);
             }
-            catch(ArgumentOutOfRangeException e)
+            catch(ArgumentOutOfRangeException)
             {
                 Console.SetCursorPosition((Console.WindowWidth - ("Aperture Science Communications").Length) / 2, Console.CursorTop);
                 Console.WriteLine("Aperture Science Communications");

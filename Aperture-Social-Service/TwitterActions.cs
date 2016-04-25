@@ -15,58 +15,73 @@ namespace Aperture_Social_Communications
         {
             this.tweet = tweet;
         }
-        public void WriteTweet()
-        {
-            Console.ForegroundColor= ConsoleColor.Red;
-            Console.Write(" Tweet : ");
-            tweet = Console.ReadLine();
-            Console.ResetColor();
-            Console.ForegroundColor = ConsoleColor.Red;
-            if (tweet.Length<=140 && tweet!="asc cancel")
-                Tweet.PublishTweet(tweet);
-            else
-            {
-                Console.Write(" Previous tweet too long or cancelled!\n");
-            }
-            Console.ResetColor();
-        }
-        public void BlockUser()
-        {
+        public void BlockUser() {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(" User : ");
             Console.ResetColor();
             user = Console.ReadLine();
-            if (user != "asc cancel")
-            {
+            if (user != "asc cancel") {
                 Console.WriteLine(" User {0} has been blocked.", user);
                 User.BlockUser(user);
-            }
-            else
-            {
+            } else {
                 Console.WriteLine(" Action cancelled.");
                 Console.ForegroundColor = ConsoleColor.Red;
 
             }
             Console.ResetColor();
         }
-        public void UnblockUser()
-        {
+        public void UnblockUser() {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(" User : ");
             Console.ResetColor();
             user = Console.ReadLine();
-            if (user != "asc cancel")
-            {
+            if (user != "asc cancel") {
                 User.UnBlockUser(user);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" User {0} has been unblocked.", user);
-            }
-            else
-            {
+            } else {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(" Action cancelled.");
             }
             Console.ResetColor();
         }
+        public void WriteTweet()
+        {
+            Console.ForegroundColor= ConsoleColor.Red;
+            Console.Write(" Tweet : ");
+            Console.ResetColor();
+            tweet = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            if (tweet.Length<=140 && tweet!="asc cancel")
+                Tweet.PublishTweet(tweet);
+                
+            else
+            {
+                Console.Write(" Previous tweet too long or cancelled!\n");
+            }
+            Console.ResetColor();
+        }
+        public void WriteDM() {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write(" User : ");
+            Console.ResetColor();
+            user = Console.ReadLine();
+            Console.ForegroundColor = ConsoleColor.Red;
+            if (user!="asc cancel") {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(" Tweet : ");
+                Console.ResetColor();
+                tweet = Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+                if (tweet != "asc cancel")
+                    Message.PublishMessage(tweet, user);
+                else
+                    Console.Write(" Message cancelled!\n");
+            }
+            else 
+                Console.Write(" Message cancelled!\n");
+            Console.ResetColor();
+        }
+
     }
 }

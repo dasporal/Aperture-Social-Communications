@@ -26,3 +26,4 @@ C:\Users\Amine\Documents\Visual Studio 2015\Projects\Aperture-Social-Service\Ape
 C:\Users\Amine\Documents\Visual Studio 2015\Projects\Aperture-Social-Service\Aperture-Social-Service\bin\Release\System.Reactive.PlatformServices.xml
 C:\Users\Amine\Documents\Visual Studio 2015\Projects\Aperture-Social-Service\Aperture-Social-Service\obj\Release\Aperture-Social-Service.exe
 C:\Users\Amine\Documents\Visual Studio 2015\Projects\Aperture-Social-Service\Aperture-Social-Service\obj\Release\Aperture-Social-Service.pdb
+C:\Users\Amine\Documents\Visual Studio 2015\Projects\Aperture-Social-Service\Aperture-Social-Service\obj\Release\Aperture-Social-Communications.csprojResolveAssemblyReference.cache

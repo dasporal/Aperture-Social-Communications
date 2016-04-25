@@ -12,5 +12,16 @@ The tweet :
 
 ![tweetPreview](http://i.imgur.com/oVzNx0M.png#center)
 
-A better view of the available commands :
-![commandsPreview](http://i.imgur.com/bhuk9Qp.png)
+##Commands
+
+`asc tweet` : post a tweet
+
+`asc dm` : send a dm
+
+`asc delete` : delete previous tweet
+
+`asc [un]block`: [un]block user
+
+`asc clear`: clear console
+
+`asc quit`: close application

@@ -1,13 +1,9 @@
-﻿using Aperture_Social_Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Tweetinvi;
-using Tweetinvi.Core;
-using Tweetinvi.Core.Authentication;
 
 namespace Aperture_Social_Communications
 {

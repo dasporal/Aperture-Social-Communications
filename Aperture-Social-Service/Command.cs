@@ -15,8 +15,8 @@ namespace Aperture_Social_Communications {
             Console.ResetColor();
             command = Console.ReadLine();
             if (command == "asc auth") {
-                auth.Authentify();
-                //auth.AdminAuthentify();
+                //auth.Authentify();
+                auth.AdminAuthentify();
             } else
                 Auth();
             Console.ResetColor();
@@ -29,8 +29,10 @@ namespace Aperture_Social_Communications {
         }
 
         public void AppCommand() {
-            TwitterActions tweet = new TwitterActions("");
             Start title = new Start();
+            TwitterActions tweet = new TwitterActions();
+            DMActions message = new DMActions();
+            Users user = new Users();
 
             Auth();
             Instructions();
@@ -38,20 +40,21 @@ namespace Aperture_Social_Communications {
                 if (command == "asc tweet") {
                     tweet.WriteTweet();
                 } else if (command == "asc block") {
-                    tweet.BlockUser();
+                    user.BlockUser();
                 } else if (command == "asc unblock") {
-                    tweet.UnblockUser();
+                    user.UnblockUser();
                 } else if (command == "asc delete") {
                     Console.WriteLine("One day");
                 } else if (command == "asc clear") {
                     Console.Clear();
                     title.WriteApp();
                 } else if (command == "asc dm")
-                    tweet.WriteDM();
+                    message.WriteDM();
                 else if (command == "help" || command == "asc help") {
                     Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine(@"
     asc tweet: post a tweet
+    asc dm : send a dm
     asc delete: delete previous tweet /!\ Not functional yet /!\
     asc [un]block: [un]block user
     asc clear: clear console

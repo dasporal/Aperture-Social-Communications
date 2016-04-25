@@ -19,8 +19,8 @@ namespace Aperture_Social_Communications
             command = Console.ReadLine();
             if (command == "asc auth")
             {
-                auth.Authentify();
-                //auth.AdminAuthentify();
+                //auth.Authentify();
+                auth.AdminAuthentify();
             }
             else
                 Auth();
@@ -47,11 +47,11 @@ namespace Aperture_Social_Communications
                 {
                     tweet.WriteTweet();
                 }
-                if (command == "asc block")
+                else if (command == "asc block")
                 {
                     tweet.BlockUser();
                 }
-                if (command == "asc unblock")
+                else if (command == "asc unblock")
                 {
                     tweet.UnblockUser();
                 }

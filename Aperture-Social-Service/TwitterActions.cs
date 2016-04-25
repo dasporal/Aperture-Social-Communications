@@ -36,9 +36,17 @@ namespace Aperture_Social_Communications
             Console.Write("User : ");
             Console.ResetColor();
             user = Console.ReadLine();
-            User.BlockUser(user);
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("User {0} has been blocked.", user);
+            if (user != "asc cancel")
+            {
+                Console.WriteLine("User {0} has been blocked.", user);
+                User.BlockUser(user);
+            }
+            else
+            {
+                Console.WriteLine("Action cancelled.");
+                Console.ForegroundColor = ConsoleColor.Red;
+
+            }
             Console.ResetColor();
         }
         public void UnblockUser()
@@ -47,9 +55,18 @@ namespace Aperture_Social_Communications
             Console.Write("User : ");
             Console.ResetColor();
             user = Console.ReadLine();
-            User.UnBlockUser(user);
+            if (user != "asc cancel")
+            {
+                User.UnBlockUser(user);
+                Console.WriteLine("User {0} has been unblocked.", user);
+            }
+            else
+            {
+                Console.WriteLine("Action cancelled.");
+                Console.ForegroundColor = ConsoleColor.Red;
+            }
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("User {0} has been unblocked.", user);
+            Console.WriteLine("User {0} has been unblocked.", user);
             Console.ResetColor();
         }
     }

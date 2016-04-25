@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Tweetinvi;
 
 namespace Aperture_Social_Communications
@@ -10,22 +6,28 @@ namespace Aperture_Social_Communications
     class TwitterActions
     {
         private string tweet;
-
-        public void WriteTweet()
+        private long id;
+        public long WriteTweet()
         {
             Console.ForegroundColor= ConsoleColor.Red;
             Console.Write(" Tweet : ");
             Console.ResetColor();
             tweet = Console.ReadLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            if (tweet.Length<=140 && tweet!="asc cancel")
+            if (tweet.Length <= 140 && tweet != "asc cancel") {
+                id = Tweet.PublishTweet(tweet).Id;
                 Tweet.PublishTweet(tweet);
-                
-            else
-            {
+                Console.ResetColor();
+                return id;
+            } else {
                 Console.Write(" Previous tweet too long or cancelled!\n");
+                Console.ResetColor();
+                return 0;
             }
-            Console.ResetColor();
+            
+        }
+        public void DeleteTweet() {
+            Tweet.DestroyTweet(id);
         }
         
     }

@@ -1,9 +1,5 @@
 ﻿using Aperture_Social_Service;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Aperture_Social_Communications {
     class Command {
@@ -44,7 +40,7 @@ namespace Aperture_Social_Communications {
                 } else if (command == "asc unblock") {
                     user.UnblockUser();
                 } else if (command == "asc delete") {
-                    Console.WriteLine("One day");
+                    tweet.DeleteTweet();
                 } else if (command == "asc clear") {
                     Console.Clear();
                     title.WriteApp();
@@ -55,7 +51,7 @@ namespace Aperture_Social_Communications {
                     Console.WriteLine(@"
     asc tweet: post a tweet
     asc dm : send a dm
-    asc delete: delete previous tweet /!\ Not functional yet /!\
+    asc delete: delete previous tweet
     asc [un]block: [un]block user
     asc clear: clear console
     asc quit: close application

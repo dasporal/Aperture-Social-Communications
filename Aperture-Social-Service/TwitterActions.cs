@@ -18,7 +18,7 @@ namespace Aperture_Social_Communications
         public void WriteTweet()
         {
             Console.ForegroundColor= ConsoleColor.Red;
-            Console.Write("Tweet : ");
+            Console.Write(" Tweet : ");
             tweet = Console.ReadLine();
             Console.ResetColor();
             Console.ForegroundColor = ConsoleColor.Red;
@@ -26,24 +26,24 @@ namespace Aperture_Social_Communications
                 Tweet.PublishTweet(tweet);
             else
             {
-                Console.Write("Previous tweet too long or cancelled!\n");
+                Console.Write(" Previous tweet too long or cancelled!\n");
             }
             Console.ResetColor();
         }
         public void BlockUser()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("User : ");
+            Console.Write(" User : ");
             Console.ResetColor();
             user = Console.ReadLine();
             if (user != "asc cancel")
             {
-                Console.WriteLine("User {0} has been blocked.", user);
+                Console.WriteLine(" User {0} has been blocked.", user);
                 User.BlockUser(user);
             }
             else
             {
-                Console.WriteLine("Action cancelled.");
+                Console.WriteLine(" Action cancelled.");
                 Console.ForegroundColor = ConsoleColor.Red;
 
             }
@@ -52,21 +52,20 @@ namespace Aperture_Social_Communications
         public void UnblockUser()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.Write("User : ");
+            Console.Write(" User : ");
             Console.ResetColor();
             user = Console.ReadLine();
             if (user != "asc cancel")
             {
                 User.UnBlockUser(user);
-                Console.WriteLine("User {0} has been unblocked.", user);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" User {0} has been unblocked.", user);
             }
             else
             {
-                Console.WriteLine("Action cancelled.");
                 Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine(" Action cancelled.");
             }
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("User {0} has been unblocked.", user);
             Console.ResetColor();
         }
     }

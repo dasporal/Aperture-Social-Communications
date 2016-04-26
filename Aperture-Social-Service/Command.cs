@@ -11,8 +11,8 @@ namespace Aperture_Social_Communications {
             Console.ResetColor();
             command = Console.ReadLine();
             if (command == "asc auth") {
-                //auth.Authentify();
-                auth.AdminAuthentify();
+                auth.Authentify();
+                //auth.AdminAuthentify();
             } else
                 Auth();
             Console.ResetColor();

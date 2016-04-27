@@ -17,6 +17,11 @@ namespace Aperture_Social_Service {
         public string GetContent() {
             return content;
         }
+
+        public string SetContent(string content) {
+            return this.content = content;
+        }
+
         public int GetID() {
             return id;
         }
@@ -25,6 +30,9 @@ namespace Aperture_Social_Service {
         }
         public long GetIDOnline() {
             return idOnline;
+        }
+        public long SetIDOnline(long i) {
+            return this.idOnline = i;
         }
     }
 }

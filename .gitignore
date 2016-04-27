@@ -21,7 +21,6 @@ bld/
 Bin/
 Obj/
 Log/
-Aperture-Social-Service/Aperture-Social-Service/ConsumerToken.cs
 
 # Visual Studio 2015 cache/options directory
 .vs/
@@ -251,13 +250,8 @@ paket-files/
 # JetBrains Rider
 .idea/
 *.sln.iml
+
 Aperture-Social-Service/ConsumerToken.cs
-Aperture-Social-Service/obj/Debug/Aperture-Social-Service.pdb
-Aperture-Social-Service/bin/Debug/Aperture-Social-Service.exe
-Aperture-Social-Service/obj/Debug/Aperture-Social-Service.exe
-Aperture-Social-Service/obj/Debug/Aperture-Social-Service.pdb
-*.exe
-*.exe
-Aperture-Social-Service/bin/Release/Aperture-Social-Service.exe
-*.pdb
-*.exe
+
+Aperture-Social-Service/bin/
+Aperture-Social-Service/obj/

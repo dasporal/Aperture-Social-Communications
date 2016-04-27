@@ -95,6 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ATweet.cs" />
     <Compile Include="Authentication.cs" />
     <Compile Include="Command.cs" />
     <Compile Include="ConsumerToken.cs" />

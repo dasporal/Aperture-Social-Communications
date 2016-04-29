@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Tweetinvi;
 
 namespace Aperture_Social_Communications
@@ -10,9 +11,11 @@ namespace Aperture_Social_Communications
     class TwitterActions
     {
         private Collection<ATweet> Tweets = new Collection<ATweet>();
-        private Stack<string> Splits = new Stack<string>();
+        private List<string> Splits = new List<string>();
         private string content;
-        private int id=0;
+        private int id = 0;
+        private int index;
+        private int index2;
         private string idD;
         private long idOnline;
         private string splitted;
@@ -27,7 +30,7 @@ namespace Aperture_Social_Communications
             Console.ForegroundColor = ConsoleColor.Red;
             if (content.Length <= 140 && content != "asc cancel") {
                 idOnline = Tweet.PublishTweet(content).Id;
-                theTweet.SetContent(content);theTweet.SetID(id);theTweet.SetIDOnline(idOnline);
+                theTweet.SetContent(content);theTweet.SetID(id);theTweet.SetIDOnline(idOnline);       // the instancied tweet get all of its needed "proper" values
                 Tweet.PublishTweet(content);
                 Tweets.Add(theTweet);
                 theTweet.SetID(this.id);
@@ -39,21 +42,23 @@ namespace Aperture_Social_Communications
                     Console.Write(" Do you want to split the tweet in multiple tweets ? (true/false) ");
                     split = Convert.ToBoolean(Console.ReadLine());
                     if (split) {
-                        theTweet.SetContent(content); theTweet.SetID(id);
-                        while (theTweet.GetContent().Length >= 140) {
-                            splitted = theTweet.GetContent().Substring(theTweet.GetContent().Length-140, theTweet.GetContent().Length);   // OutOfRangeException need to be figured out
-                            Splits.Push(splitted);
+                        theTweet.SetContent(content);
+                        index = theTweet.GetContent().Length;
+                        index2 = index;
+                        while (index2 > 140) {
+                            index2 -= index;
+                            splitted = theTweet.GetContent().Substring(index2, 140);
+                            Splits.Add(splitted);
                         }
-                        foreach(string split in Splits) {
-                            Tweet.PublishTweet(split);
+                        for (int i = 0; i <= Splits.Count; i++) {
+                            Tweet.PublishTweet(Splits.ElementAt(i));
                         }
                     }
                 }
             }
             Console.ResetColor();
+        }   
 
-
-        }
         public void DeleteTweet() {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(" id : ");

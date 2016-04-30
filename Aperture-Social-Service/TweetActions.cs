@@ -44,7 +44,7 @@ namespace Aperture_Social_Communications
                     if (split) {
                         theTweet.SetContent(content);
                         index = theTweet.GetContent().Length;
-                        for (int compteur = 0; compteur < (Math.Floor(index / 140) - 1); compteur++) {
+                        for (int compteur = 0; compteur < ((index / 140) - 1); compteur++) {
                             index2 = 140 * compteur;
                             splitted = theTweet.GetContent().Substring(index2, 140);
                             Splits.Add(splitted);

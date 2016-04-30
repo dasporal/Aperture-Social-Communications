@@ -12,6 +12,7 @@ namespace Aperture_Social_Communications
     {
         private Collection<ATweet> Tweets = new Collection<ATweet>();
         private List<string> Splits = new List<string>();
+        ATweet theTweet = new ATweet("", 0, 0);
         private string content;
         private int id = 0;
         private int index;
@@ -22,7 +23,7 @@ namespace Aperture_Social_Communications
         private bool split;
         public void WriteTweet()
         {
-            ATweet theTweet = new ATweet("", 0, 0);
+            
             Console.ForegroundColor= ConsoleColor.Red;
             Console.Write(" Tweet : ");
             Console.ResetColor();
@@ -39,29 +40,31 @@ namespace Aperture_Social_Communications
             } else {
                 Console.Write(" Previous tweet too long or cancelled!\n");
                 if (content.Length > 140) {
-                    Console.Write(" Do you want to split the tweet in multiple tweets ? (true/false) ");
-                    split = Convert.ToBoolean(Console.ReadLine());
-                    if (split) {
-                        theTweet.SetContent(content);
-                        index = theTweet.GetContent().Length;
-                        index2 = 0;
-                        for (int count = 0; count < index / 140; count++) {
-                            splitted = theTweet.GetContent().Substring(index2, 140);
-                            Splits.Add(splitted);
-                            index2 = 140 * (count + 1);
-                        }
-                        if (index % 140 > 0) {
-                            splitted = theTweet.GetContent().Substring(index2, index % 140); // gets the end of the tweet
-                            Splits.Add(splitted);
-                        }
-                        for (int i = 0; i <= Splits.Count; i++) {
-                            Tweet.PublishTweet(Splits.ElementAt(i));
-                        }
-                    }
+                    StackTweets(theTweet);
                 }
             }
             Console.ResetColor();
-        }   
+        }
+
+        public void StackTweets(ATweet tweet) {
+            Console.Write(" Do you want to split the tweet in multiple tweets ? (true/false) ");
+            split = Convert.ToBoolean(Console.ReadLine());
+            theTweet.SetContent(content);
+            index = theTweet.GetContent().Length;
+            index2 = 0;
+            for (int count = 0; count < index / 139; count++) {
+                splitted = theTweet.GetContent().Substring(index2, 140);
+                Splits.Add(splitted);
+                index2 = 140 * (count + 1);
+            }
+            if (index % 140 > 0) {
+                splitted = theTweet.GetContent().Substring(index2, index % 140); // gets the end of the tweet
+                Splits.Add(splitted);
+            }
+            for (int i = 0; i <= Splits.Count; i++) {
+                Tweet.PublishTweet(Splits.ElementAt(i));
+            }
+        }
 
         public void DeleteTweet() {
             Console.ForegroundColor = ConsoleColor.Red;

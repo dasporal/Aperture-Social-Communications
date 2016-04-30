@@ -44,12 +44,13 @@ namespace Aperture_Social_Communications
                     if (split) {
                         theTweet.SetContent(content);
                         index = theTweet.GetContent().Length;
-                        index2 = index;
-                        while (index2 > 140) {
-                            index2 -= index;
+                        for (int compteur = 0; compteur < (Math.Floor(index / 140) - 1); compteur++) {
+                            index2 = 140 * compteur;
                             splitted = theTweet.GetContent().Substring(index2, 140);
                             Splits.Add(splitted);
                         }
+                        splitted = theTweet.GetContent().Substring(index2, index % 140); // gets the end of the tweet
+                        Splits.Add(splitted);
                         for (int i = 0; i <= Splits.Count; i++) {
                             Tweet.PublishTweet(Splits.ElementAt(i));
                         }

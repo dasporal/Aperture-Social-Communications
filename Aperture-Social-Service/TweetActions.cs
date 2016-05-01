@@ -52,7 +52,7 @@ namespace Aperture_Social_Communications
             theTweet.SetContent(content);
             index = theTweet.GetContent().Length;
             index2 = 0;
-            for (int count = 0; count < index / 139; count++) {
+            for (int count = 0; count < index / 140; count++) {
                 splitted = theTweet.GetContent().Substring(index2, 140);
                 Splits.Add(splitted);
                 index2 = 140 * (count + 1);
@@ -61,10 +61,11 @@ namespace Aperture_Social_Communications
                 splitted = theTweet.GetContent().Substring(index2, index % 140); // gets the end of the tweet
                 Splits.Add(splitted);
             }
-            for (int i = 0; i <= Splits.Count; i++) {
+            for (int i = 0; i < Splits.Count; i++) {
                 Tweet.PublishTweet(Splits.ElementAt(i));
             }
         }
+
 
         public void DeleteTweet() {
             Console.ForegroundColor = ConsoleColor.Red;

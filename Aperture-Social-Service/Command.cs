@@ -1,5 +1,6 @@
 ﻿using Aperture_Social_Service;
 using System;
+using Tweetinvi;
 
 namespace Aperture_Social_Communications {
     class Command {
@@ -11,8 +12,8 @@ namespace Aperture_Social_Communications {
             Console.ResetColor();
             command = Console.ReadLine();
             if (command == "asc auth") {
-                auth.Authentify();
-                //auth.AdminAuthentify();
+                //auth.Authentify();
+                auth.AdminAuthentify();
             } else
                 Auth();
             Console.ResetColor();
@@ -44,6 +45,8 @@ namespace Aperture_Social_Communications {
                 } else if (command == "asc clear") {
                     Console.Clear();
                     title.WriteApp();
+                } else if (command == "asc uwu") {
+                    Tweet.PublishTweet("uwu");
                 } else if (command == "asc dm")
                     message.WriteDM();
                 else if (command == "help" || command == "asc help") {

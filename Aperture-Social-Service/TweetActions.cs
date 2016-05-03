@@ -21,9 +21,8 @@ namespace Aperture_Social_Communications
         private long idOnline;
         private string splitted;
         private bool split;
-        public void WriteTweet()
-        {
-            
+
+        public void WriteTweet() {
             Console.ForegroundColor= ConsoleColor.Red;
             Console.Write(" Tweet : ");
             Console.ResetColor();
@@ -45,28 +44,24 @@ namespace Aperture_Social_Communications
             }
             Console.ResetColor();
         }
-
-        public void StackTweets(ATweet tweet) {
+		
+		public void StackTweets(ATweet tweet) {
             Console.Write(" Do you want to split the tweet in multiple tweets ? (true/false) ");
             split = Convert.ToBoolean(Console.ReadLine());
-            theTweet.SetContent(content);
-            index = theTweet.GetContent().Length;
-            index2 = 0;
-            for (int count = 0; count < index / 140; count++) {
-                splitted = theTweet.GetContent().Substring(index2, 140);
-                Splits.Add(splitted);
-                index2 = 140 * (count + 1);
-            }
-            if (index % 140 > 0) {
-                splitted = theTweet.GetContent().Substring(index2, index % 140); // gets the end of the tweet
-                Splits.Add(splitted);
-            }
-            for (int i = 0; i < Splits.Count; i++) {
-                Tweet.PublishTweet(Splits.ElementAt(i));
-            }
+			
+			if(split) {
+				theTweet.SetContent(content);
+				String text = tweet.GetContent();
+				for(int i = 0; i < Math.Ceiling(text.Lenght/140); i++) {
+					int index1 = 140*i;
+					int index2 = (text.Lenght > 140*(i+1)) ? 140*(i+1) : text.Lenght; //condition to avoid OutOfBounds error, text lenght is not necessary a modulo of 140
+					Tweet.PublishTweet(text.Substring(index1, index2);
+				}
+			} else {
+				//TODO: user doesn't want to split the tweet
+			}
         }
-
-
+		
         public void DeleteTweet() {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(" id : ");

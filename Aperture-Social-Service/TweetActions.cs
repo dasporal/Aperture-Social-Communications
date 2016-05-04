@@ -45,21 +45,21 @@ namespace Aperture_Social_Communications
             Console.ResetColor();
         }
 		
-		public void StackTweets(ATweet tweet) {
+	public void StackTweets(ATweet tweet) {
             Console.Write(" Do you want to split the tweet in multiple tweets ? (true/false) ");
             split = Convert.ToBoolean(Console.ReadLine());
 			
-			if(split) {
-				theTweet.SetContent(content);
-				String text = tweet.GetContent();
-				for(int i = 0; i < Math.Ceiling(text.Lenght/140); i++) {
-					int index1 = 140*i;
-					int index2 = (text.Lenght > 140*(i+1)) ? 140*(i+1) : text.Lenght; //condition to avoid OutOfBounds error, text lenght is not necessary a modulo of 140
-					Tweet.PublishTweet(text.Substring(index1, index2);
-				}
-			} else {
-				//TODO: user doesn't want to split the tweet
+		if(split) {
+			theTweet.SetContent(content);
+			String text = tweet.GetContent();
+			for(int i = 0; i < Math.Ceiling(text.Length/140.0); i++) {
+				int index1 = 140*i;
+				int index2 = (text.Length > 140*(i+1)) ? 140 : text.Length-140*i; //condition to avoid OutOfRange error, text lenght is not necessary a modulo of 140
+				Tweet.PublishTweet(text.Substring(index1, index2);
 			}
+		} else {
+			//TODO: user doesn't want to split the tweet
+		}
         }
 		
         public void DeleteTweet() {

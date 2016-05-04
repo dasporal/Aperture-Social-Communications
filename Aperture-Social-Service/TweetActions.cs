@@ -54,7 +54,7 @@ namespace Aperture_Social_Communications
 			String text = tweet.GetContent();
 			for(int i = 0; i < Math.Ceiling(text.Length/140.0); i++) {
 				int index1 = 140*i;
-				int index2 = (text.Length > 140*(i+1)) ? 140 : text.Length-140*i; //condition to avoid OutOfRange error, text lenght is not necessary a modulo of 140
+				int index2 = (text.Length > 140*(i+1)) ? 140 : text.Length-index1; //condition to avoid OutOfRange error, text lenght is not necessary a modulo of 140
 				Tweet.PublishTweet(text.Substring(index1, index2);
 			}
 		} else {
